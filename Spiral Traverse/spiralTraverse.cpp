@@ -37,7 +37,7 @@ vector<int> spiralTraverse(vector<vector<int>> array)
 
         for (int row = endRow - 1; row > startRow; row--)
         {
-            if (startCol == endCol)
+            c if (startCol == endCol)
             {
                 break;
             }
