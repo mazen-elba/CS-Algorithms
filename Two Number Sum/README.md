@@ -8,3 +8,21 @@ targetSum = 10
 
 OUTPUT
 [-1, 11]
+
+```cpp
+    for (int i = 0; i < array.size(); i++) {
+        ```
+        ```cpp
+        for (int j = i + 1; array.size(); j++) {
+            ```
+            ```cpp
+            if (targetSum == array[i] + array[j]) {
+                ```
+                ```cpp
+                return vector<int>{array[i], array[j]};
+                ```
+            }
+        }
+    }
+    return {};
+```
