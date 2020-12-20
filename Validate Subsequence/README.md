@@ -1,34 +1,44 @@
-### Two Number Sum
-> Write a function that takes in a non-empty array of distinct integers and an integer representing a target sum. If any two numbers in the input array sum up to the target sum, the function should return them in an array, in any order. If no two numbers sum up to the target sum, the function should return an empty array.
+### Validate Subsequence
+> Given two non-empty array of integers, write a function that determines whether the second array if a subsequence of the first one.<br/>
+
+> A subsequence of the an array of an array is a set of numbers that aren't necessarily adjacent in the array, but that are in the same order as they appear in the array.
 
 ### Input
-array = [3, 5, -4, 8, 11, -1, 6]<br/>
-targetSum = 10
+array = [5, 1, 22, 25, 6, -1, 8, 10]<br/>
+sequence = [1, 6, -1, 10]
 
 ### Output
-[-1, 11]
+true
 
 ### Solution
-Use two loops to sum all possible pairs of numbers in the input array. For every number X in the input array, find a corresponding number Y such that X + Y = targetSum.
+Declare a variable holding your position in the potential sequence. At first, this position will be the 0th index in the sequence; as you find the sequence's integers in the main array, you'll increment the position varibales until you reach the end of the sequence.
 ```cpp
-    for (int i = 0; i < array.size(); i++) {
-        for (int j = i + 1; array.size(); j++) {
-            ...
-        }
+int arrIdx = 0;
+int seqIdx = 0;
+```
+Iterate through the main input array once, and look for the first integer in the potential subsequence.
+```cpp
+    while (arrIdx < array.size() && seqIdx < sequence.size()) {
+        ...
     }
 ```
-If there is a match of elements X and Y (in any order) that add up to the targetSum, add both elements to a new array, and return that array.
+If you find that integer, keep on iterating through the main array, but now look for the second integer in the potential subsequence.<br/>
+
+Continue this process until you either find every integer in the potential subsequence or you reach the end of the main array.
 ```cpp
-    if (targetSum == array[i] + array[j]) {
-        return vector<int>{array[i], array[j]};
+    ...
+    if (array[arrIdx] == sequence[seqIdx]){
+        seqIdx++;
     }
+    arrIdx++;
+    ...
 ```
-If there is no match of elements X and Y that add up to the targetSum, return an empty array.
+Return *true* if the number if elements in the subsequence matches the number of positions counted.
 ```cpp
-    return {};
+    return seqIdx == sequence.size();
 ```
 ### Optimal Complexity 
-O(n) Time | O(n) Space
+O(n) Time | O(1) Space
 
 ### Data Structure - Array (C/C++)
 * An array is a series of elements of the same type (placed in continguous memory locations) 
@@ -39,8 +49,6 @@ O(n) Time | O(n) Space
     * *Sequence*: elements in sequence containers are ordered in a strict linear sequence (individual elements are accessed by their position in this sequence)
     * *Contiguous Storage*: elements are stored in contiguous memory locations (allowing constant time random access to elements). Pointers to an element can be offset to access other elements
     * *Fixed-Size Aggregate*: container uses implicit constructors and destructors to allocate required space statically (its size is compile-time constant; no memory or time overhead)
-
-* In C++, arrays are blocks of static memory whose size must be determined at compile time (before program runs)
 
 * In C++, arrays are blocks of static memory whose size must be determined at compile time (before program runs)
 
