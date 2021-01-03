@@ -4,9 +4,9 @@ using namespace std;
 bool isPalindrome(string str)
 {
     string reversedString = "";
-    for (int i = str.length() - 1; i >= 0; i--)
+    for (int c = str.length() - 1; c >= 0; c--)
     {
-        reversedString += str[i];
+        reversedString += str[c];
     }
     return str == reversedString;
 }

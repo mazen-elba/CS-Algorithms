@@ -47,4 +47,31 @@ foo [2] = 75; // accesses 3rd element of the array
 x = foo[2];   // assigns 75 to x
 ```
 
+### Strings (C/C++)
 
+* C-style strings are a special case of an array of characters
+```cpp
+std::cout << "Hello World";
+```
+
+* Above string is euivalent to using the array declaration
+```cpp
+char sayHello[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '\0'};
+```
+
+* The last character in the array is a *null* character *'\0'* (ie; string-termination character, which tells the compiler that the string has ended). The string's last character *always* precedes the null-terminator '\0'. When you embed a string literal, the compiler does the job of adding a '\0' after it.
+
+* If you inserted '\0' anywhere in the middle of the array, it would not change the size of the array; it owuld only mean that string-processing would stop at that point.
+
+* C++ offers a better option for string literals (std::string), which provides convenient utility functions (to determine length, concatenate, etc.)
+
+* C++ standard strings are more efficient and safer to deal with text input, and perform string manipulation
+
+* C++ std::string are dynamic in size (unlike  C-style's char array implementation), and can scale when data needs it
+
+* STL string class is a container (supplied by the standard template library), that helps with string manipulation requirements.
+
+* Advantages of suing string class: 
+	* Memory Mangement
+	* String Comparison
+	* String Manipulation
