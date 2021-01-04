@@ -28,7 +28,7 @@ char getNewLetter(char letter, int key);
 
 ...
 
-char getNewLetter(char letter, int ket) {
+char getNewLetter(char letter, int key) {
 	int newLetterCode = letter + key;
 	return newLetterCode <= 122 ? newLetterCode : 96 + newLetterCode % 122;
 }
